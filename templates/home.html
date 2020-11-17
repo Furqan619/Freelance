@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% extends "subscribe.html" %}
+
+{% load static %}
+{% block body %}
+
+<body>
+      <div class='container'>
+      <h1>Hello {{ name }}  world!!</h1>
+      <h1>Thank you {{ subs.name }} for subscribing</h1>
+
+      {{subs.name}}
+      {% block subscribe %}
+
+
+      {% endblock subscribe %}
+
+      </div>
+      <br>
+      <div class='d-flex justify-content-center my-5 mx-5' style='border-color:black;'>
+      
+      <form action="calculate" method="POST">{% csrf_token %}
+            
+            Enter value A: <input type="text" id="valueA" name="valueA"><br><br>
+            Enter value B: <input type="text" id="valueB" name="valueB"><br>
+            <br><input type="submit">
+            <!-- <br>   <button type="submit">submit</button> -->
+      </form>
+</div>
+</body>
+
+{% endblock %}

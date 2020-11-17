@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+      {% block subscribe %}
+      {% endblock subscribe%}
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Subscribe</title>
+</head>
+
+<body>
+
+      <div class="destinations" id="destinations">
+            <div class="container">
+                  <div class="row">
+                        <div class="col text-center">
+                              <div class="section_subtitle">simply amazing places</div>
+                              <div class="section_title">
+                                    <h2>Popular Destinations</h2>
+                              </div>
+                        </div>
+                  </div>
+                  <div class='container'>
+                        <div class="row destinations_row">
+                              <div class="col">
+                                    <div class="destinations_container item_grid">
+
+
+                                          {% for dest in dests %}
+                                          <!-- Destination -->
+                                          <div class="destination item">
+                                                <div class="destination_image">
+                                                      <img src="{{dest.img.url}}" alt="">
+
+                                                      {% if dest.offer %}
+                                                      <div class="spec_offer text-center"><a href="#">Special Offer</a>
+                                                      </div>
+                                                      {% endif %}
+
+
+                                                </div>
+                                                <div class="destination_content">
+                                                      <div class="destination_title"><a
+                                                                  href="destinations.html">{{dest.name}}{{subs.name}}</a></div>
+                                                      <div class="destination_subtitle">
+                                                            <p>{{dest.desc}}</p>
+                                                      </div>
+                                                      <div class="destination_price">From ${{dest.price}}</div>
+                                                </div>
+                                          </div>
+                                          {% endfor %}
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+
+<!-- Categories Section Begin -->
+<section class="categories">
+      <div class="container">
+            <div class="row">
+                  <div class="categories__slider owl-carousel">
+                        <div class="col-lg-3">
+                              <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
+                                    <h5><a href="#">Fresh Fruit</a></h5>
+                              </div>
+                        </div>
+                        <div class="col-lg-3">
+                              <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
+                                    <h5><a href="#">Dried Fruit</a></h5>
+                              </div>
+                        </div>
+                        <div class="col-lg-3">
+                              <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
+                                    <h5><a href="#">Vegetables</a></h5>
+                              </div>
+                        </div>
+                        <div class="col-lg-3">
+                              <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
+                                    <h5><a href="#">drink fruits</a></h5>
+                              </div>
+                        </div>
+                        <div class="col-lg-3">
+                              <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
+                                    <h5><a href="#">drink fruits</a></h5>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</section>
+
+</body>
+
+</html>
+
+
+{% endblock %}

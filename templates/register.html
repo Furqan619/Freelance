@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <h1 class="title my-5" style="text-align: center;" >Registration</h1>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Register</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <style>
+            .container {
+                  display:block;
+                  padding:80px;
+                  text-align: center;
+                  width: 50%;
+            }
+      </style>
+
+
+</head>
+<body>
+      <div  style='text-align: center;'>
+            {% for message in messages %}
+            <h3 style="color:red">{{ message }}</h3>
+            
+            {% endfor %}
+      </div>
+      
+      <div class="container">
+      <form action="register" method='post'>{% csrf_token %}
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="first_name" placeholder="First Name" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="text" name="last_name" placeholder="Last Name" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type='text' name="username" placeholder="Username" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type='password' name="password1" placeholder="Password" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  type="password" name="password2" placeholder="Confirm Password" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="email" name="email" placeholder="Email" required><br>
+            <input  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="Date" name="date_joined" placeholder="Date" required><br>
+            <input  class="btn btn-primary btn-lg" type='submit' name="submit" >
+            
+                  <a href="{% url 'login' %}"  <button class="btn btn-dark btn-lg" type="button">Login</button> </a>
+<a href="{% url 'logout' %}"  <button class="btn btn-dark btn-lg" type="button">Home</button> </a>
+                  
+
+                  
+              
+            
+      </form>
+      </div>
+      
+
+
+</body>
+</html>
